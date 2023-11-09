@@ -1,8 +1,12 @@
 name: Generate JSON Daily
 
 on:
-    schedule:
-        - cron: "0 0 * * *" # Run every day at midnight UTC
+    push:
+        branches:
+            - main # Replace 'main' with your target branch
+# on:
+#     schedule:
+#         - cron: "0 0 * * *" # Run every day at midnight UTC
 
 jobs:
     generate-json:
