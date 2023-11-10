@@ -32,7 +32,7 @@ function generateTimeSlots(startDate, endDate, times) {
 
 //Function to save the time sloth to a JSON file
 function saveTimeSlotsToFile(timeSlotsObj) {
-    fs.writeFileSync("data.json", JSON.stringify(timeSlotsObj));
+    fs.writeFileSync("index.json", JSON.stringify(timeSlotsObj, null, 2));
     console.log("Time slots saved to data.json", timeSlotsObj);
 }
 
