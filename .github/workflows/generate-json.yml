@@ -1,12 +1,9 @@
-name: Generate JSON Daily
+name: Generate JSON on Push
 
 on:
     push:
         branches:
             - main # Replace 'main' with your target branch
-# on:
-#     schedule:
-#         - cron: "0 0 * * *" # Run every day at midnight UTC
 
 jobs:
     generate-json:
@@ -14,12 +11,12 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v4
+              uses: actions/checkout@v2
 
             - name: Setup Node.js
               uses: actions/setup-node@v2
               with:
-                  node-version: 16
+                  node-version: 16 # Specify Node.js version 16
 
             - name: Install dependencies
               run: npm install
