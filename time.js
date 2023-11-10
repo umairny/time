@@ -14,7 +14,7 @@ function generateTimeSlots(startDate, endDate, times) {
         //copy the times array
         const timesCopy = [...times];
         //random size of array 4 to 10
-        const elm = Math.floor(Math.random() * 10);
+        const elm = Math.floor(Math.random() * 10 + 2);
         //create the new array with random size and numbers
         for (let i = 0; i < elm; i++) {
             const randomIndex = Math.floor(Math.random() * timesCopy.length);
