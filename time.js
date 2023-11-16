@@ -32,8 +32,15 @@ function generateTimeSlots(startDate, endDate, times) {
 
 //Function to save the time sloth to a JSON file
 function saveTimeSlotsToFile(timeSlotsObj) {
-    fs.writeFileSync("index.json", JSON.stringify(timeSlotsObj, null, 2));
-    console.log("Time slots saved to data.json", timeSlotsObj);
+    // const filePath = (process.cwd(), "timeSlots.json");
+    fs.writeFileSync(
+        `${__dirname}/timeSlots.json`,
+        JSON.stringify(timeSlotsObj, null, 2)
+    );
+    // console.log("Time slots saved to timeSlots.json", timeSlotsObj);
+    // writeFileP(`${__dirname}/output.json`, timeSlotsObj);
+
+    console.log("file save output", timeSlotsObj);
 }
 
 //new date object
@@ -81,8 +88,10 @@ function DailyUpdate() {
 }
 
 //Schedule the daily update
-const data = require("./data.json");
+const availTimes = require("./timeSlots.json");
 
-if (startDate !== Object.keys(data)[0]) {
+if (startDate !== Object.keys(availTimes)[0]) {
     DailyUpdate();
+} else {
+    console.log("Error: Stat date " + startDate + " not more than today.");
 }
